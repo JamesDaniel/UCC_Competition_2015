@@ -23,7 +23,6 @@ public class LightDriver
 		{
 			
 		}*/
-		System.out.println("Please enter input: ");
 		Scanner in = new Scanner(System.in);
 		int numOfLightSwitches = in.nextInt();
 		int numOfBulbs = in.nextInt();
@@ -61,20 +60,7 @@ public class LightDriver
 					                                  sourceTwo,
 					                                  gateType));
 		}
-		for (SwitchOrGate sog:switchesAndGates)
-		{
-			if (sog.state != -1)
-				System.out.println("\n\nSwitch identifier: " + sog.identifier +
-					               "\nSwitch state: " + sog.state);
-			else
-				System.out.println("\nGate identifier: " + sog.identifier +
-					               "\nGate initial state: " + sog.state +
-					               "\nGate source1: " + sog.sourceOne +
-					               "\nGate source2: " + sog.sourceTwo +
-					               "\nGate type: " + sog.gateType);
-		}
-		System.out.println("\n\nProcessing Information: ");
-		setGateStates();
+		
 	}
 	
 	
@@ -118,12 +104,10 @@ public class LightDriver
 	}
 	
 	public void setGateStates(){
-		System.out.println("Setting Gate States: ");
 		int changedStateCount=0;
 		while (changedStateCount != numOfGates)    // the state of all gates need to be set
 			                                       // this'll loop more times if one gate needs another gate that wasn't set yet.
 		{
-			System.out.println("Entering while loop: ");
 			int sourceToUse1 = -1;  // this is just housekeeping to reset all variables   
 			int sourceToUse2 = -1;
 			boolean source1isValid = false;
@@ -131,14 +115,12 @@ public class LightDriver
 			
 			for (SwitchOrGate sog : switchesAndGates)
 			{
-				System.out.println("Entering for each loop: ");
 				sourceToUse1 = -1;
 				sourceToUse2 = -1;
 				source1isValid = false;
 				source2isValid = false;
 				if (sog.state == -1)
 				{
-					System.out.println("sog state == -1");
 					for (SwitchOrGate sog2: switchesAndGates)  // this whole loop will go on even after we got what we wanted. doesn't matter.
 					{
 						if (sog.sourceOne == sog2.identifier &&
@@ -158,72 +140,10 @@ public class LightDriver
 
 					if (source1isValid && source2isValid)   // if we have 2 inputs we should set the output state
 					{
-						System.out.println("two valid sources found.");
 						processGate(sourceToUse1,sourceToUse2,sog);
-						changedStateCount++;
 					}
 				}
 			}
-		}
-		
-		// all gates should have an output value now
-		for (Bulb b: bulbs)   // run through the bulbs and change their state
-		{
-			for (SwitchOrGate g: switchesAndGates)
-			{
-				if (b.source == g.identifier)
-				{
-					b.state = g.state;
-				}
-			}
-		}
-
-		System.out.println("\nThe state of the bulb or bulbs is: ");
-		for (Bulb b:bulbs) // print out the state of the bulbs or bulb
-		{
-			System.out.print(b.state + " ");
-		}
-		
-	}
-	public void processGate(int sourceToUse1, int sourceToUse2, SwitchOrGate sog) // if we have both sources then change the state according to them.
-	{
-		System.out.println("Beginning to process gate output: ");
-		if (sog.gateType == 1)
-		{
-			System.out.println("Entering AND gate");
-			if (sourceToUse1 == 1 && sourceToUse2 == 1)  // AND gate
-				sog.state = 1;
-			else
-				sog.state = 0;
-		}
-		else if (sog.gateType == 2)
-		{
-			if (sourceToUse1 == 0 && sourceToUse2 == 0)  // OR gate
-				sog.state = 0;
-			else
-				sog.state = 1;
-		}
-		else if (sog.gateType == 3)
-		{
-			if ((sourceToUse1 == 1 && sourceToUse2 == 1) ||
-				(sourceToUse1 == 0 && sourceToUse2 == 0))      // XOR gate
-				sog.state = 0;
-			else
-				sog.state = 1;
-		}
-		else if (sog.gateType == 4) 
-		{
-			if (sourceToUse1 == 0 && sourceToUse2 == 0)  // NOR gate
-				sog.state = 1;
-			else
-				sog.state = 0;
-		}
-		else if (sog.gateType == 5)
-		{
-			if (sourceToUse1 == 1 && sourceToUse2 == 1)  // NAND gate
-				sog.state = 0;
-			else
-				sog.state = 1;
 		}
 	}
 
