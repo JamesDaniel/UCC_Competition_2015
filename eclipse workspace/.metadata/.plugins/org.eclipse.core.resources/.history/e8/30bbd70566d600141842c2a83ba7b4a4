@@ -1,0 +1,59 @@
+package main;
+
+import java.util.Arrays;
+
+public class TesterClass {
+	final static int ROWS = 4;
+	final static int COLS = 6;
+	
+	public static void main(String[] args) {
+		int[] row1 = {0, 0, 0, 0, 0, 0};
+		int[] row2 = {0, 0, 0, 1, 0, 1};
+		int[] row3 = {0, 1, 0, 0, 0, 0};
+		int[] row4 = {0, 1, 1, 0, 1, 1};
+		int[][] grid = {row1,row2,row3,row4};
+		int[] digTime = toDigitalTime(grid);
+		format(digTime);
+		
+		System.out.println(Arrays.toString(digTime));
+	}
+	public static void format(int[] time)
+	{
+		if (time[2] > 59)
+		{
+			time[2] = 60 - time[2];
+			time[1]++;
+		}
+		if (time[1] > 59)
+		{
+			time[1] = 60 - time[1];
+			time[0]++;
+		}
+		if (time[0] > 23)
+		{
+			time[0] = time[0] % 24;
+		}
+	}
+	public static int[] toDigitalTime(int[][] array){
+		String binaryString="";
+		int[] digitalTime6 = new int[6];
+		int[] digitalTime3 = new int[3];
+		
+		for (int cols=0;cols<COLS;cols++)
+		{
+			for (int rows=0; rows<ROWS;rows++)
+			{
+				binaryString += array[rows][cols];
+			}
+			digitalTime6[cols] = Integer.parseInt(binaryString,2);
+			binaryString = "";
+		}
+		digitalTime3[0] = (digitalTime6[0] * 10) + digitalTime6[1];
+		digitalTime3[1] = (digitalTime6[2] * 10) + digitalTime6[3];
+		digitalTime3[2] = (digitalTime6[4] * 10) + digitalTime6[5];
+		
+		return digitalTime3;
+	}
+	
+
+}

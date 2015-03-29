@@ -1,0 +1,29 @@
+package main;
+
+public class TesterClass {
+	final static int ROWS = 4;
+	final static int COLS = 6;
+	
+	public static void main(String[] args) {
+		int[] row1 = {1, 0, 0, 0, 0, 0};
+		int[] row2 = {0, 1, 0, 0, 0, 1};
+		int[] row3 = {0, 0, 1, 0, 1, 0};
+		int[] row4 = {0, 0, 0, 1, 0, 0};
+		int[][] grid = {row1,row2,row3,row4};
+		
+		print2DArray(grid);
+	}
+	public static void print2DArray(int[][] array){
+		String output = "";
+		for (int rows=0; rows<ROWS; rows++)
+		{
+			for (int cols=0; cols<COLS; cols++)
+			{
+				output += array[rows][cols] + " ";
+			}
+			output += "\n";
+		}
+		System.out.println(output);
+	}
+
+}

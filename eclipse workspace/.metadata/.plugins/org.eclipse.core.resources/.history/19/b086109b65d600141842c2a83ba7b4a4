@@ -1,0 +1,21 @@
+package main;
+
+import java.util.Arrays;
+
+public class TesterClass {
+	final static int ROWS = 4;
+	final static int COLS = 6;
+	
+	public static void main(String[] args) {
+		int[] row1 = {0, 0, 0, 0, 0, 0};
+		int[] row2 = {0, 0, 0, 1, 0, 1};
+		int[] row3 = {0, 1, 0, 0, 0, 0};
+		int[] row4 = {0, 1, 1, 0, 1, 1};
+		int[][] grid = {row1,row2,row3,row4};
+		
+		
+		System.out.println(25%24);
+	}
+	
+
+}

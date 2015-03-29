@@ -1,0 +1,34 @@
+package main;
+
+import java.util.Scanner;
+
+public class Driver {
+		final static int ROWS = 4;
+		final static int COLS = 6;
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int[][] time = new int[ROWS][COLS];
+		
+		for (int i=0; i<ROWS; i++)
+		{
+			for (int j=0; j<COLS; j++)
+			{
+				time[i][j] = in.nextInt();
+			}
+		}
+
+	}
+	public static void print2DArray(int[][] array){
+		String output = "";
+		for (int i=0; i<ROWS; i++)
+		{
+			for (int j=0; j<COLS; j++)
+			{
+				output += array[i][j];
+			}
+			output += "\n";
+		}
+		System.out.println(output);
+	}
+
+}
