@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;input&apos; to &apos;Margaret&apos;s Minute Minute Manipulation2&apos;&#x0D;&#x0A;- Original project: &apos;Margaret&apos;s Minute Minute Manipulation&apos;&#x0D;&#x0A;- Destination element: &apos;Margaret&apos;s Minute Minute Manipulation2&apos;&#x0D;&#x0A;- Original element: &apos;input&apos;" description="Copy folder" destination="=Margaret&apos;s Minute Minute Manipulation2" element1="input" files="0" flags="589830" folders="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1427766651392" units="0" version="1.0"/>
+</session>

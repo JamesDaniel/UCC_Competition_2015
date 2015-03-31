@@ -1,0 +1,20 @@
+package main;
+
+import java.io.File;
+import java.util.Scanner;
+
+public class P1 {
+
+	public static void main(String[] args) {
+		Scanner in=null;
+		try{in = new Scanner(new File("input/input"));}catch(Exception e){}
+
+		int[] hrs10s = new int[4];
+		int[] hrs1s  = new int[4];
+		int[] min10s = new int[4];
+		int[] min1s  = new int[4];
+		int[] sec10s = new int[4];
+		int[] sec1s  = new int[4];
+	}
+
+}

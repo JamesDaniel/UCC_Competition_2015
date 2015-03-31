@@ -1,0 +1,53 @@
+package main;
+
+import java.io.File;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class P1 {
+
+	public static void main(String[] args) {
+		Scanner in=null;
+		try{in = new Scanner(new File("input/input"));}catch(Exception e){}
+
+		int[] hrs10s = new int[4];
+		int[] hrs1s  = new int[4];
+		int[] min10s = new int[4];
+		int[] min1s  = new int[4];
+		int[] sec10s = new int[4];
+		int[] sec1s  = new int[4];
+		for (int i=0; i<4; i++)
+		{
+			hrs10s[i] = in.nextInt();
+			hrs1s[i]  = in.nextInt();
+			min10s[i] = in.nextInt();
+			min1s[i]  = in.nextInt();
+			sec10s[i] = in.nextInt();
+			sec1s[i]  = in.nextInt();
+		}
+		
+		int[] addedhrs10s = new int[4];
+		int[] addedhrs1s  = new int[4];
+		int[] addedmin10s = new int[4];
+		int[] addedmin1s  = new int[4];
+		int[] addedsec10s = new int[4];
+		int[] addedsec1s  = new int[4];
+		for (int i=0; i<4; i++)
+		{
+			addedhrs10s[i] = in.nextInt();
+			addedhrs1s[i]  = in.nextInt();
+			addedmin10s[i] = in.nextInt();
+			addedmin1s[i]  = in.nextInt();
+			addedsec10s[i] = in.nextInt();
+			addedsec1s[i]  = in.nextInt();
+		}
+		
+		System.out.println(Arrays.toString(addedhrs10s));
+		System.out.println(Arrays.toString(addedhrs1s));
+		System.out.println(Arrays.toString(addedmin10s));
+		System.out.println(Arrays.toString(addedmin1s));
+		System.out.println(Arrays.toString(addedsec10s));
+		System.out.println(Arrays.toString(addedsec1s));
+	}
+
+}

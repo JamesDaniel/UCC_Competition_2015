@@ -15,7 +15,7 @@ public class TesterClass {
 		int[] digTime = toDigitalTime(grid);
 		format(digTime);
 		
-		System.out.println(55%10);
+		System.out.println(15/10);
 	}
 	public static void format(int[] time)
 	{
